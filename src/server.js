@@ -1,6 +1,6 @@
-import Express from 'express';
+import express from 'express';
+let app = express();
 
-let app = Express();
 let hostname = 'localhost';
 let port = 8017;
 
