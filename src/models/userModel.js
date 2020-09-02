@@ -12,7 +12,7 @@ let UserSchema = new Schema({
     local    : {
         email       : {type: String, trim: true},
         password    : String,
-        isActive    : {type: Boolean, default: false},
+        isActive    : {type: Boolean, default: true},
         verifyToken : String
     },
     facebook : {
