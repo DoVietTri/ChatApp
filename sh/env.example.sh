@@ -9,3 +9,8 @@ export DB_PASSWORD=***
 #Config app environment variable
 export APP_HOSTNAME=***
 export APP_PORT=***
+
+#Config app login facebook
+export FB_APP_ID=
+export FB_APP_SECRET=
+export FB_CALLBACK_URL=
