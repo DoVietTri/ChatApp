@@ -10,7 +10,9 @@ export const transErrors = {
     account_removed: "Tài khoản đã bị xóa khỏi hệ thống",
     account_not_active: "Tài khoản đã được đăng kí nhưng chưa được active, vui lòng check mail và active tài khoản",
     login_failed: "Sai tài khoản hoặc mật khẩu !",
-    server_error: "Có lỗi phía server"
+    server_error: "Có lỗi phía server",
+    avatar_type : "Kiểu file không hợp lệ",
+    avatar_size : "Kích thước ảnh quá lớn ! Tối đa cho phép 1MB"
 };
 
 export const transSuccess = {
@@ -22,5 +24,7 @@ export const transSuccess = {
         return `Xin chào ${username}. Chúc bạn một ngày tốt lành !`
     },
 
-    logout_success: 'Đăng xuất thành công, hẹn gặp lại !'
+    logout_success: 'Đăng xuất thành công, hẹn gặp lại !',
+
+    avatarUpdated: 'Cập nhât ảnh đại diện thành công !'
 };

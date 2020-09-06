@@ -7,6 +7,36 @@ import connectFlash from 'connect-flash';
 import configSession from './config/session';
 import passport from 'passport';
 
+// //Init app
+// let app = express();
+
+// //Connect to MongoDB
+// ConnectDB();
+
+// //Config session
+// configSession(app);
+
+// //Config view engine 
+// configViewEngine(app);
+
+// //Enable post data for request
+// app.use(bodyParser.urlencoded({extended: true}));
+
+// //Enable flash message
+// app.use(connectFlash());
+
+// //confing passport js
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// //Define routes web
+// initRoutes(app);
+
+// app.listen(process.env.APP_PORT, process.env.APP_HOSTNAME, (req, res) => {
+//     console.log(`Running ${process.env.APP_HOSTNAME}:${process.env.APP_PORT}/`);
+// });
+
+
 import pem from 'pem';
 import https from 'https';
 
@@ -45,31 +75,3 @@ pem.createCertificate({ days: 1, selfSigned: true }, function (err, keys) {
     });
 });
 
-// //Init app
-// let app = express();
-
-// //Connect to MongoDB
-// ConnectDB();
-
-// //Config session
-// configSession(app);
-
-// //Config view engine 
-// configViewEngine(app);
-
-// //Enable post data for request
-// app.use(bodyParser.urlencoded({extended: true}));
-
-// //Enable flash message
-// app.use(connectFlash());
-
-// //confing passport js
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-// //Define routes web
-// initRoutes(app);
-
-// app.listen(process.env.APP_PORT, process.env.APP_HOSTNAME, (req, res) => {
-//     console.log(`Running ${process.env.APP_HOSTNAME}:${process.env.APP_PORT}/`);
-// });
