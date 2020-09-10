@@ -1,10 +1,9 @@
 import multer from 'multer';
 import {app} from './../config/app';
-import {transErrors} from './../../lang/vi';
+import {transErrors, transSuccess} from './../../lang/vi';
 import uuidv4 from 'uuid/v4';
 import {user} from './../services/index';
 import fsExtra from 'fs-extra';
-import {transSuccess} from './../../lang/vi';
 import {validationResult} from 'express-validator/check';
 
 let storageAvatar = multer.diskStorage({
@@ -82,7 +81,32 @@ let updateInfo = async (req, res) => {
     }
 };
 
+let updatePassword = async (req, res) => {
+    let errorArr = [];
+    let validationErrors = validationResult(req);
+    
+    if (!validationErrors.isEmpty()) {
+        let errors = Object.values(validationErrors.mapped()); 
+        errors.forEach(item => {
+            errorArr.push(item.msg);
+        });
+        return res.status(500).send(errorArr);
+    }
+
+    try {
+        let updateUserItem = req.body;
+        await user.updatePassword(req.user._id, updateUserItem);
+        let result = {
+            message: transSuccess.user_password_updated
+        }
+        return res.status(200).send(result);
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+};
+
 module.exports = {
     updateAvatar: updateAvatar,
-    updateInfo: updateInfo
+    updateInfo: updateInfo,
+    updatePassword: updatePassword
 };

@@ -16,7 +16,9 @@ export const transErrors = {
     login_failed: "Sai tài khoản hoặc mật khẩu !",
     server_error: "Có lỗi phía server",
     avatar_type : "Kiểu file không hợp lệ",
-    avatar_size : "Kích thước ảnh quá lớn ! Tối đa cho phép 1MB"
+    avatar_size : "Kích thước ảnh quá lớn ! Tối đa cho phép 1MB",
+    account_undefined: "Tài khoản không tồn tại ",
+    user_current_password_failed: "Mật khẩu hiện tại không chính xác"
 };
 
 export const transSuccess = {
@@ -29,5 +31,6 @@ export const transSuccess = {
     },
 
     logout_success: 'Đăng xuất thành công, hẹn gặp lại !',
-    user_info_updated: 'Cập nhật thông tin người dùng thành công !'
+    user_info_updated: 'Cập nhật thông tin người dùng thành công !',
+    user_password_updated: "Cập nhật mật khẩu thành công !"
 };
