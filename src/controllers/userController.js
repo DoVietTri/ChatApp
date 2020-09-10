@@ -65,7 +65,7 @@ let updateInfo = async (req, res) => {
         errors.forEach(item => {
             errorArr.push(item.msg);
         });
-        res.status(500).send(errorArr);
+        return res.status(500).send(errorArr);
     }
     try {
         let updateUserItem = req.body;
