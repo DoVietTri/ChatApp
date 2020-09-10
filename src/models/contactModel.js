@@ -12,8 +12,25 @@ let ContactSchema = new Schema({
 });
 
 ContactSchema.statics = {
+    /**
+     * create new contact
+     * @param {data} item 
+     */
     createNew(item) {
         return this.create(item);
+    },
+
+    /**
+     * find all items that related with user
+     * @param {string} userId 
+     */
+    findAllByUser(userId) {
+        return this.find({
+            $or: [
+                {'userId': userId},
+                {'contactId': userId}
+            ]
+        }).exec();
     }
 }
 
