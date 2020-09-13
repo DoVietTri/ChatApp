@@ -26,7 +26,7 @@ let findUsersContact = async (req, res) => {
 
 let addNew = async (req, res) => {
     try {
-        let currentUserId = req.body._id;
+        let currentUserId = req.user._id;
         let contactId = req.body.uid;
 
         let newContact = await contact.addNew(currentUserId, contactId);
