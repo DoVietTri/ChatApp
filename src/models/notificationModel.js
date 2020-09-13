@@ -47,6 +47,19 @@ NotificationSchema.statics = {
         }).sort({
             'createdAt': -1
         }).limit(limit).exec();
+    },
+
+    /**
+     * count all notification unread
+     * @param {string} userId 
+     */
+    countNotifUnread(userId) {
+        return this.count({
+            $and: [
+                {'receiverId': userId},
+                {'isRead': false}
+            ]
+        }).exec();
     }
 };
 
@@ -58,15 +71,15 @@ const NOTIFICATON_CONTENTS = {
     getContent: (notificationType, isRead, userId, username, userAvatar) => {
         if (notificationType === NOTIFICATON_TYPE.ADD_CONTACT) {
             if (!isRead) {
-                return `<span class="notif-readed-false" data-uid="${ userId }">
+                return `<div class="notif-readed-false" data-uid="${ userId }">
                             <img class="avatar-small" src="images/users/${userAvatar}" alt=""> 
                             <strong>${username}</strong> đã gửi cho bạn một lời mời kết bạn !
-                        </span><br><br>`;
+                        </div>`;
             }
-            return `<span data-uid="${ userId }">
+            return `<div data-uid="${ userId }">
                         <img class="avatar-small" src="images/users/${userAvatar}" alt=""> 
                         <strong>${username}</strong> đã gửi cho bạn một lời mời kết bạn !
-                    </span><br><br>`;
+                    </div>`;
         }
 
         return 'No matching with any notification type';

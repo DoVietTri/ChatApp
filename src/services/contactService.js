@@ -55,7 +55,7 @@ let removeRequestContact = (currentUserId, contactId) => {
         }
 
         //remove notification
-        await NotificationModel.model.removeRequestContactNotification(currentUserId, contactId, NotificationModel.type.ADD_CONTACT);
+        await NotificationModel.model.removeRequestContactNotification(currentUserId, contactId, NotificationModel.types.ADD_CONTACT);
         return resolve(true);
     });
 }
