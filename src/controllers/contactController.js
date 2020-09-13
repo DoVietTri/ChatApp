@@ -38,9 +38,8 @@ let addNew = async (req, res) => {
 
 let removeRequestContact = async (req, res) => {
     try {
-        let currentUserId = req.body._id;
+        let currentUserId = req.user._id;
         let contactId = req.body.uid;
-
         let removeReq = await contact.removeRequestContact(currentUserId, contactId);
         return res.status(200).send({success: !!removeReq});
     } catch (error) {
