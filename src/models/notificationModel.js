@@ -60,6 +60,20 @@ NotificationSchema.statics = {
                 {'isRead': false}
             ]
         }).exec();
+    },
+
+    /**
+     * read more notification 10 item one time
+     * @param {string} userId 
+     * @param {number} skip 
+     * @param {number} limit 
+     */
+    readMore(userId, skip, limit) {
+        return this.find({
+            'receiverId': userId
+        }).sort({
+            'createdAt': -1
+        }).skip(skip).limit(limit).exec();
     }
 };
 
