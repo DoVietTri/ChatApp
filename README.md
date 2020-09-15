@@ -1,6 +1,6 @@
 # ChatApp
 
-Trong apps này có sử dụng những thư viện phía client với chính xác các phiên bản như sau:
+App sử dụng các thư viện phía client như sau: 
 
 - bootstrap: **^3.3.7**
 - font-awesome **^4.7.0**
@@ -14,7 +14,3 @@ Trong apps này có sử dụng những thư viện phía client với chính x�
 - photoset-grid **^1.0.1**
 - jquery-colorbox **^1.6.4**
 
-Các bạn vui lòng làm theo hướng dẫn trong video của mình, sử dụng chính xác phiên bản của các thư viện này để tránh gặp những lỗi không đáng có nhé.
-Thank you so much!
-
-"A little bit of fragrance always clings to the hands that gives you roses!"
