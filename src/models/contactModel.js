@@ -65,7 +65,101 @@ ContactSchema.statics = {
                 {'contactId': contactId}
             ]
         }).exec();
+    },
+
+    /**
+     * get contact by userId (đã là bạn bè)
+     * @param {string} userId 
+     * @param {number} limit 
+     */
+    getContacts(userId, limit) {
+        return this.find({
+            $and: [
+                {$or: [
+                    {'userId': userId},
+                    {'contactId': userId}
+                ]},
+                {'status': true}
+            ]
+        }).sort({
+            'createdAt': -1
+        }).limit(limit).exec();
+    },
+
+    /**
+     * (đã gửi lời mời kết bạn nhưng chưa đồng ý)
+     * @param {string} userId 
+     * @param {number} limit 
+     */
+    getContactsSent(userId, limit) {
+        return this.find({
+            $and: [
+                {'userId': userId},
+                {'status': false}
+            ]
+        }).sort({
+            'createdAt': -1
+        }).limit(limit).exec();
+    },
+
+    /**
+     * lời kết bạn nhận được từ người khác 
+     * @param {string} userId 
+     * @param {number} limit 
+     */
+    getContactsReceived(userId, limit) {
+        return this.find({
+            $and: [
+                {'contactId': userId},
+                {'status': false}
+            ]
+        }).sort({
+            'createdAt': -1
+        }).limit(limit).exec();
+    },
+
+    /**
+     * count all contact
+     * @param {string} userId 
+     */
+    countAllContacts(userId) {
+        return this.count({
+            $and: [
+                {$or: [
+                    {'userId': userId},
+                    {'contactId': userId}
+                ]},
+                {'status': true}
+            ]
+        }).exec();
+    },
+
+    /**
+     * count all contact sent
+     * @param {string} userId 
+     */
+    countAllContactsSent(userId) {
+        return this.count({
+            $and: [
+                {'userId': userId},
+                {'status': false}
+            ]
+        }).exec();
+    },
+
+    /**
+     * count all contact received
+     * @param {string} userId 
+     */
+    countAllContactsReceived(userId) {
+        return this.count({
+            $and: [
+                {'contactId': userId},
+                {'status': false}
+            ]
+        }).exec();
     }
+
 }
 
 module.exports = mongoose.model('contact', ContactSchema);
