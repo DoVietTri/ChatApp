@@ -29,7 +29,7 @@ $(document).ready(function() {
                                     </div>
                                     <br>
                                     <div class="user-address">
-                                        <span>&nbsp ${user.address}</span>
+                                        <span>&nbsp ${(user.address !== null) ? user.address : ''}</span>
                                     </div>
                                     <div class="user-acccept-contact-received" data-uid="${user._id}">
                                         Chấp nhận
