@@ -17,7 +17,7 @@ function callFindUsers(element) {
         $.get(`/contact/find-users/${keyword}`, function(data) {
             $('#find-user ul.contactList').html(data);
             addContact(); //js/addContact.js
-            removeRequestContact();  //js/removeRequestContact.js
+            removeRequestContactSent();  //js/removeRequestContact.js
         });
     }
 }
