@@ -26,7 +26,7 @@ NotificationSchema.statics = {
      * @param {string} receiverId 
      * @param {string} type 
      */
-    removeRequestContactNotification(senderId, receiverId, type) {
+    removeRequestContactSentNotification(senderId, receiverId, type) {
         return this.remove({
             $and: [
                 {'senderId'  : senderId},
