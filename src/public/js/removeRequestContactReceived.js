@@ -27,7 +27,6 @@ function removeRequestContactReceived() {
 
 socket.on('response-remove-request-contact-received', function(user) {
 
-    console.log(user);
     $('#find-user').find(`div.user-remove-request-contact-sent[data-uid = ${user.id}]`).hide();
     $('#find-user').find(`div.user-add-new-contact[data-uid = ${user.id}]`).css('display', 'inline-block');          
     
